@@ -3,3 +3,57 @@ ion-content{
 	background: url('../img/music.jpg') bottom right fixed #00BFFF;
 	color:snow;
 }
+
+button, ion-list div{
+	opacity:0.9;
+}
+.card-background-page{
+	padding:5%;
+}
+
+.card-background-page ion-card {
+    position: relative;
+    text-align: center;
+  }
+
+  .card-background-page ion-card img {
+    background-color:#04B486;
+    border-radius: 5px;
+    opacity:0.8;
+    width:30%;
+  }
+
+.card-background-page .card-title {
+    position: absolute;
+    top: -20%;
+    text-transform: capitalize;
+    left:-5%;
+    font-size: 1.2em;
+    width:100%;
+    z-index:2;
+    display:inline-block;
+    color: #fff;
+  }
+
+
+
+  .author-github a, a.author-email{
+	text-decoration: none;
+	font-style: oblique;
+	color:#81F7D8;
+}
+.author-container{
+	padding-top:30%;
+	display:table-block;
+	margin-top:15%;
+	margin-bottom:10%;
+	font-size:2rem;
+	font-family:garamond;
+	line-height:2.5rem;
+	background-color:#04B486;
+	height:90vh;
+	width:90vw;
+	border-radius: 20px;
+	margin: 5vh 5vw;
+	opacity:0.8;
+}
