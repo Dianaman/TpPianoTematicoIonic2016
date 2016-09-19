@@ -1,15 +1,15 @@
 angular.module('starter.controllers', [])
 
 .controller('LoginCtrl', function($scope, $state, $rootScope){
-  $scope.username = '';
-  $scope.entrar = function(){
-    $rootScope.usuario = $scope.username;
-    console.log($scope.username);
+  $scope.datos = {};
+  $scope.entrar = function(datos){
+    $rootScope.usuario.nombre = datos;
+    console.log(datos);
     $state.go('tab.piano');
   }
 })
 
-.controller('DashCtrl', function($scope) {})
+.controller('InicioCtrl', function($scope) {})
 
 .controller('PianoCtrl', function($scope, Chats) {
   // With the new view caching in Ionic, Controllers are only called
@@ -40,6 +40,9 @@ angular.module('starter.controllers', [])
     sonido: 'verde'
   }];
   
+  $scope.emitirSonido = function(item){
+    console.log(item.sonido);
+  }
 })
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {

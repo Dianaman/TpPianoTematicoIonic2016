@@ -45,13 +45,12 @@ button, ion-list div{
 .author-container{
 	padding-top:30%;
 	display:table-block;
-	margin-top:15%;
 	margin-bottom:10%;
 	font-size:2rem;
 	font-family:garamond;
 	line-height:2.5rem;
 	background-color:#04B486;
-	height:90vh;
+	height:75vh;
 	width:90vw;
 	border-radius: 20px;
 	margin: 5vh 5vw;
