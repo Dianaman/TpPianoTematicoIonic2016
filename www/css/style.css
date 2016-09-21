@@ -51,6 +51,17 @@ button, ion-list div{
 	border-radius: 20px;
 	margin: 5vh 5vw;
 	opacity:0.8;
+  padding-top:10%;
+}
+
+div.archivo-container{
+  background-color:white;
+  width:90%;
+  height:70%;
+  opacity: 0.8;
+  color:black;
+  text-align: center;
+  padding:10%;
 }
 
 @media(max-width: 480px){
@@ -59,7 +70,9 @@ button, ion-list div{
   }
   .author-container{
     font-size:1.5rem;
-    padding-top:40%;
+  }
+  div.archivo-container{
+    margin:5% 5%;
   }
 }
 @media(min-width: 481px) and (max-width: 749px){
@@ -68,7 +81,9 @@ button, ion-list div{
   }
   .author-container{
     font-size:2rem;
-    padding-top:30%;
+  }
+  div.archivo-container{
+    margin:10% 5%;
   }
 }
 @media(min-width: 750px){
@@ -77,6 +92,8 @@ button, ion-list div{
   }
   .author-container{
     font-size:2rem;
-    padding-top:20%;
+  }
+  div.archivo-container{
+    margin:15% 5%;
   }
 }
