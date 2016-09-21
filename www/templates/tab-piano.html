@@ -1,4 +1,10 @@
 <ion-view view-title="Piano">
+	<ion-nav-buttons side="left">
+      <button class="button" ng-click="goBack()">
+        <i class="ion-ios-arrow-back"></i> Back
+      </button>
+    </ion-nav-buttons>
+
   <ion-content class="card-background-page">
 
     <ion-card ng-repeat="item in items" ng-click="emitirSonido(item)">

@@ -1,24 +1,31 @@
 angular.module('starter.controllers', [])
+.run(function($rootScope){
+  $rootScope.usuario = {};
+  $rootScope.usuario.name = "";
+})
 
 .controller('LoginCtrl', function($scope, $state, $rootScope){
   $scope.datos = {};
   $scope.entrar = function(datos){
     $rootScope.usuario.nombre = datos;
     console.log(datos);
-    $state.go('tab.piano');
+    $state.go('tab.inicio');
   }
 })
 
-.controller('InicioCtrl', function($scope) {})
+.controller('InicioCtrl', function($scope, $state) {
+  $scope.irAPiano = function(){
+    $state.go('tab.piano');
+  }
 
-.controller('PianoCtrl', function($scope, Chats) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
+  $scope.irAInfo = function(){
+    $state.go('tab.autor');
+  }
+
+})
+
+.controller('PianoCtrl', function($scope, $state) {
+
 
   $scope.items = [{
     image: 'img/pteri/blue.PNG',
@@ -39,6 +46,10 @@ angular.module('starter.controllers', [])
     image: 'img/pteri/green.PNG',
     sonido: 'verde'
   }];
+
+  $scope.goBack = function(){
+    $state.go('tab.inicio');
+  }
   
   $scope.emitirSonido = function(item){
     console.log(item.sonido);
@@ -49,8 +60,9 @@ angular.module('starter.controllers', [])
   $scope.chat = Chats.get($stateParams.chatId);
 })
 
-.controller('AutorCtrl', function($scope) {
-  $scope.settings = {
-    enableFriends: true
-  };
+.controller('AutorCtrl', function($scope, $state) {
+  
+  $scope.goBack = function(){
+    $state.go('tab.inicio');
+  }
 });
