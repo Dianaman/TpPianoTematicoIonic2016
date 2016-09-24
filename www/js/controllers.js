@@ -28,27 +28,33 @@ angular.module('starter.controllers', ['ngCordova'])
 
 })
 
-.controller('PianoCtrl', function($scope, $state, $ionicPlatform, $cordovaFile) {
+.controller('PianoCtrl', function($scope, $state, $ionicPlatform, $cordovaFile, $cordovaNativeAudio) {
 
 
   $scope.items = [{
     image: 'img/pteri/blue.PNG',
-    sonido: 'azul'
+    sonido: 'azul',
+    musica: 'sounds/azul.m4a'
   },{
     image: 'img/pteri/white.PNG',
-    sonido: 'blanco'
+    sonido: 'blanco',
+    musica: 'sounds/blanco.m4a'
   },{
     image: 'img/pteri/pink.PNG',
-    sonido: 'rosa'
+    sonido: 'rosa',
+    musica: 'sounds/rosa.m4a'
   },{
     image: 'img/pteri/orange.PNG',
-    sonido: 'naranja'
+    sonido: 'naranja',
+    musica: 'sounds/naranja.m4a'
   },{
     image: 'img/pteri/purple.PNG',
-    sonido: 'violeta'
+    sonido: 'violeta',
+    musica: 'sounds/violeta.m4a'
   },{
     image: 'img/pteri/green.PNG',
-    sonido: 'verde'
+    sonido: 'verde',
+    musica: 'sounds/verde.m4a'
   }];
 
   $scope.goBack = function(){
@@ -56,13 +62,70 @@ angular.module('starter.controllers', ['ngCordova'])
   }
   
 $scope.melodia = '';
+try{
+      $ionicPlatform.ready(function() {
 
-  $scope.emitirSonido = function(item){
-    //console.log(item.sonido);
-    $scope.melodia = $scope.melodia.concat(item.sonido + ' ');
-    //console.log($scope.melodia);
+      $cordovaNativeAudio
+      .preloadSimple('azul', 'sounds/azul.m4a')
+      .then(function (msg) {
+        console.log(msg);
+      }, function (error) {
+        alert(error);
+      });
+
+      $cordovaNativeAudio
+      .preloadSimple('verde', 'sounds/verde.m4a')
+      .then(function (msg) {
+        console.log(msg);
+      }, function (error) {
+        alert(error);
+      });
+
+      $cordovaNativeAudio
+      .preloadSimple('rosa', 'sounds/rosa.m4a')
+      .then(function (msg) {
+        console.log(msg);
+      }, function (error) {
+        alert(error);
+      });
+
+      $cordovaNativeAudio
+      .preloadSimple('blanco', 'sounds/blanco.m4a')
+      .then(function (msg) {
+        console.log(msg);
+      }, function (error) {
+        alert(error);
+      });
+
+      $cordovaNativeAudio
+      .preloadSimple('naranja', 'sounds/naranja.m4a')
+      .then(function (msg) {
+        console.log(msg);
+      }, function (error) {
+        alert(error);
+      });
+
+      $cordovaNativeAudio
+      .preloadSimple('violeta', 'sounds/violeta.m4a')
+      .then(function (msg) {
+        console.log(msg);
+      }, function (error) {
+        alert(error);
+      });
+
+      })
+      $scope.emitirSonido = function(item){
+        
+        
+        //console.log(item.sonido);
+        $scope.melodia = $scope.melodia.concat(item.sonido + ' ');
+        $cordovaNativeAudio.play(item.sonido);
+        //console.log($scope.melodia);
+      }
+  }catch(e){
+    console.log(e.message);
   }
-
+  
   $scope.guardarMelodia = function(){
     try{
         $ionicPlatform.ready(function() {
